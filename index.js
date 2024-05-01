@@ -260,13 +260,13 @@ app.get("/tasks", isAuthenticated, async (req, res) => {
         let filteredTasks = allTasks.filter(
           (each) => each.createdBy === userId
         );
-        res.send(filteredTasks);
+        res.send({ tasks: filteredTasks, role: req.role });
       } else {
         let allTasks = await Task.find();
         let filteredTasks = allTasks.filter(
           (each) => each.assigneeId === userId
         );
-        res.send(filteredTasks);
+        res.send({ tasks: filteredTasks, role: req.role });
       }
     }
   } catch (err) {

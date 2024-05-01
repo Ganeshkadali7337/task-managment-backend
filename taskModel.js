@@ -13,6 +13,10 @@ const Task = mongoose.Schema({
     type: String,
     required: true,
   },
+  assigneeName: {
+    type: String,
+    required: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,

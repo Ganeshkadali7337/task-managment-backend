@@ -171,6 +171,7 @@ app.post("/tasks", isAuthenticated, isAdmin, async (req, res) => {
           title,
           description,
           assigneeId,
+          assigneeName: assignee.userName,
           assignedBy: existed.userName,
           createdBy: existed._id,
           status: "Pending",

@@ -286,7 +286,7 @@ app.get("/userProfiles", isAuthenticated, isAdmin, async (req, res) => {
       const filteredUsers = allUsers.filter(
         (each) => each.createdBy === userId
       );
-      res.send(filteredUsers);
+      res.send({ filteredUsers: filteredUsers, role: req.role });
     }
   } catch (err) {
     console.log(err.message);
